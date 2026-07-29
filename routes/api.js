@@ -12,3 +12,8 @@ router.post("/login", userController.login);
 router.get("/komik", komikController.getAllKomik);
 router.get("/komik/:id", komikController.getKomikById);
 
+// Protected
+router.post("/komik", authMiddleware, komikController.createKomik);
+router.put("/komik/:id", authMiddleware, komikController.updateKomik);
+router.delete("/komik/:id", authMiddleware, komikController.deleteKomik);
+
